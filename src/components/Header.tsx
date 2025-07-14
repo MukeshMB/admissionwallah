@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function FuturisticHeader() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("home");
 
     return (
         <nav className="bg-white/95 backdrop-blur-xl shadow-lg sticky top-0 z-50 border-b border-gray-200">
@@ -34,21 +35,22 @@ export default function FuturisticHeader() {
                     <div className="hidden lg:block">
                         <div className="ml-10 flex items-center space-x-1">
                             {[
-                                { name: 'Home', href: '#home', active: true },
-                                { name: 'Services', href: '#services' },
-                                { name: 'Colleges', href: '#colleges' },
-                                { name: 'Success Stories', href: '#testimonials' },
-                                { name: 'Contact', href: '#contact' }
+                                { name: 'Home', href: '#home', active: activeSection === 'home' },
+                                { name: 'Services', href: '#services', active: activeSection === 'services' },
+                                { name: 'Colleges', href: '#colleges', active: activeSection === 'colleges' },
+                                { name: 'Testimonials', href: '#testimonials', active: activeSection === 'testimonials' },
+                                { name: 'Contact', href: '#contact', active: activeSection === 'contact' }
                             ].map((item) => (
                                 <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
                                     key={item.name}
                                     href={item.href}
                                     className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${item.active
                                         ? 'text-blue-600 bg-blue-50 shadow-sm'
                                         : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                                         }`}
+                                    onClick={() => {
+                                        setActiveSection(item.name.toLowerCase());
+                                    }}
                                 >
                                     {item.name}
                                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full"></div>
@@ -59,10 +61,16 @@ export default function FuturisticHeader() {
 
                     {/* CTA Button - Desktop */}
                     <div className="hidden lg:block">
-                        <button className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
-                            <span className="relative z-10">Get Started</span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </button>
+                        <a
+                            className="pt-4"
+                            href="https://wa.me/918873204593?text=Hi%20Admission%20Wallah,%20I%20need%20guidance%20for%20college%20admission"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <button className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden group">
+                                <span className="relative z-10">Get Started</span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </button>
+                        </a>
                     </div>
 
                     {/* Mobile menu button */}
@@ -84,23 +92,21 @@ export default function FuturisticHeader() {
             <div className={`lg:hidden transition-all duration-500 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
                 <div className="px-4 pt-2 pb-6 space-y-1 bg-white/98 backdrop-blur-xl border-t border-gray-200 shadow-lg">
                     {[
-                        { name: 'Home', href: '#home', active: true },
-                        { name: 'Services', href: '#services' },
-                        { name: 'Colleges', href: '#colleges' },
-                        { name: 'Success Stories', href: '#testimonials' },
-                        { name: 'Contact', href: '#contact' }
+                        { name: 'Home', href: '#home', active: activeSection === 'home' },
+                        { name: 'Services', href: '#services', active: activeSection === 'services' },
+                        { name: 'Colleges', href: '#colleges', active: activeSection === 'colleges' },
+                        { name: 'Testimonials', href: '#testimonials', active: activeSection === 'testimonials' },
+                        { name: 'Contact', href: '#contact', active: activeSection === 'contact' }
                     ].map((item, index) => (
                         <a
                             key={item.name}
                             href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 transform hover:translate-x-2 ${item.active
                                 ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-500 shadow-sm'
                                 : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                                 }`}
                             style={{ animationDelay: `${index * 100}ms` }}
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => {setIsMenuOpen(false); setActiveSection(item.name.toLowerCase());}}
                         >
                             {item.name}
                         </a>

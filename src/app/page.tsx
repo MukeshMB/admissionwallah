@@ -321,7 +321,7 @@ const AdmissionWallah = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="pt-5 pb-10 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -350,15 +350,12 @@ const AdmissionWallah = () => {
       </section>
 
       {/* Exam Categories Section */}
-      <section id="colleges" className="py-20 bg-white">
+      <section id="colleges" className="pt-5 pb-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Counselling Categories
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We prepare students for 500+ courses in 1000+ colleges across India. Find the one you are preparing for
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -389,7 +386,7 @@ const AdmissionWallah = () => {
       <MarqueeTestimonials />
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+      <section id="contact" className="pt-5 pb-10 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
