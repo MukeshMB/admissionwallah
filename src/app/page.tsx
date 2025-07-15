@@ -289,9 +289,11 @@ const AdmissionWallah = () => {
           </div>
 
           <div className="text-center mt-10">
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-md hover:bg-blue-700 transition-all duration-200">
+            <a href="https://wa.me/918873204593?text=Hi%20Admission%20Wallah,%20I%20need%20guidance%20for%20college%20admission"
+              target="_blank"
+              rel="noopener noreferrer" className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-md hover:bg-blue-700 transition-all duration-200">
               🎯 Book Free Consultation
-            </button>
+            </a>
           </div>
         </div>
 
