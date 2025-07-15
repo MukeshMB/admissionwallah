@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
-import { FaUnlockAlt } from "react-icons/fa";
-import { ChevronRight, Users, BookOpen, Award, Phone, Mail, MapPin, Star, Menu, X, CheckCircle, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Users, BookOpen, Award, Phone, Mail, MapPin, Star, CheckCircle, ArrowRight } from 'lucide-react';
 import FuturisticHeader from '@/components/Header';
 import MarqueeTestimonials from '@/components/Testimonials';
+import CounsellingSection from '@/components/CounsellingSection';
 
 const AdmissionWallah = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const services = [
     {
       icon: <Users className="w-12 h-12 text-blue-600" />,
@@ -35,184 +33,6 @@ const AdmissionWallah = () => {
       stats: "95% Success Rate"
     }
   ];
-
-  const examCategories = [
-    {
-      title: "MBBS",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🏥",
-      color: "bg-red-50 border-red-200"
-    },
-    {
-      title: "Btech",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🔧",
-      color: "bg-blue-50 border-blue-200"
-    },
-    {
-      title: "MBA",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🏢",
-      color: "bg-indigo-50 border-indigo-200"
-    },
-    {
-      title: "B.Sc. Nursing",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🩺",
-      color: "bg-rose-50 border-rose-200"
-    },
-    {
-      title: "BBA",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "📈",
-      color: "bg-orange-50 border-orange-200"
-    },
-    {
-      title: "BCA",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "💻",
-      color: "bg-sky-50 border-sky-200"
-    },
-    {
-      title: "B.Ed",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "📚",
-      color: "bg-teal-50 border-teal-200"
-    },
-    {
-      title: "PGDM",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🎓",
-      color: "bg-amber-50 border-amber-200"
-    },
-    {
-      title: "B.Pharma / D.Pharma",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "💊",
-      color: "bg-pink-50 border-pink-200"
-    },
-    {
-      title: "MCA",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🖥️",
-      color: "bg-cyan-50 border-cyan-200"
-    },
-    {
-      title: "Polytechnic",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🔧",
-      color: "bg-pink-100 border-pink-300"
-    },
-    {
-      title: "B.Sc Agriculture",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🌾",
-      color: "bg-lime-50 border-lime-200"
-    },
-    {
-      title: "M.Sc Agriculture",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🌱",
-      color: "bg-emerald-50 border-emerald-200"
-    },
-    {
-      title: "M.Tech",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "⚙️",
-      color: "bg-gray-50 border-gray-200"
-    },
-    {
-      title: "Management",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "📊",
-      color: "bg-green-50 border-green-200"
-    },
-    {
-      title: "Hotel Management",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🏨",
-      color: "bg-fuchsia-50 border-fuchsia-200"
-    },
-
-    {
-      title: "Law",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "⚖️",
-      color: "bg-purple-50 border-purple-200"
-    },
-    {
-      title: "Arts & Design",
-      exams: [
-        "Private Colleges",
-        "Government Colleges"
-      ],
-      icon: "🎨",
-      color: "bg-pink-100 border-pink-300"
-    },
-    {
-      title: "Coaching",
-      exams: [
-        "NEET",
-        "JEE Main",
-        "JEE Advanced",
-        "12th Board",
-      ],
-      icon: "🏨",
-      color: "bg-teal-50 border-teal-200"
-    },
-  ];
-
 
   return (
     <div className="min-h-screen bg-white">
@@ -323,18 +143,22 @@ const AdmissionWallah = () => {
       {/* Services Section */}
       <section id="services" className="pt-5 pb-10 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive support to help you achieve your academic goals and secure admission in your dream college
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Scrollable container on mobile */}
+          <div
+            id="scroll-container"
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible no-scrollbar snap-x scroll-smooth"
+          >
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+              <div
+                key={index}
+                className="min-w-[280px] md:min-w-0 bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow snap-start mb-10"
+              >
                 <div className="flex flex-col items-center text-center space-y-4">
                   {service.icon}
                   <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
@@ -347,40 +171,48 @@ const AdmissionWallah = () => {
             ))}
           </div>
         </div>
+
+        <style jsx>{`
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  `}</style>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        let container = document.getElementById("scroll-container");
+        let scrollInterval = null;
+
+        function startAutoScroll() {
+          scrollInterval = setInterval(() => {
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+              container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              container.scrollBy({ left: 1, behavior: 'smooth' });
+            }
+          }, 30);
+        }
+
+        function stopAutoScroll() {
+          clearInterval(scrollInterval);
+        }
+
+        container?.addEventListener("touchstart", stopAutoScroll);
+        container?.addEventListener("mousedown", stopAutoScroll);
+
+        window.addEventListener("load", startAutoScroll);
+      `,
+          }}
+        />
       </section>
 
-      {/* Exam Categories Section */}
-      <section id="colleges" className="pt-5 pb-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Counselling Categories
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {examCategories.map((category, index) => (
-              <div key={index} className={`${category.color} border-2 rounded-xl p-6 hover:shadow-lg transition-shadow`}>
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="text-3xl">{category.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
-                </div>
-                <div className="space-y-2 mb-6">
-                  {category.exams.map((exam, examIndex) => (
-                    <div key={examIndex} className="inline-block bg-white px-3 py-1 rounded-full text-sm font-medium text-gray-700 mr-2 mb-2">
-                      {exam}
-                    </div>
-                  ))}
-                </div>
-                <button className="flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                  Explore Category
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CounsellingSection />
 
       {/* Testimonials Section */}
       <MarqueeTestimonials />
@@ -434,27 +266,27 @@ const AdmissionWallah = () => {
           </div>
 
           {/* Founder Info */}
-          <div className="px-6 py-6 mt-12 max-w-2xl mx-auto">
+          <div className="px-4 py-6 mt-12 max-w-2xl mx-auto">
             <div className="text-center space-y-4">
               {/* Founder */}
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-2xl">👨‍💼</span>
-                <p className="text-gray-700 text-base sm:text-lg">
-                  Founded by <span className="text-blue-700 font-semibold">Ankit Pratap Singh</span> <span className="text-gray-500">(NITian)</span>
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                <span className="text-xl sm:text-2xl">👨‍💼</span>
+                <p className="text-gray-700 text-sm sm:text-base md:text-lg">
+                  Founded by <span className="text-blue-700 font-semibold">Ankit Pratap Singh</span>{" "}
+                  <span className="text-gray-500">(NITian)</span>
                 </p>
               </div>
 
               {/* Co-Founder */}
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-2xl">👨‍💼</span>
-                <p className="text-gray-700 text-base sm:text-lg">
-                  Co-Founded by <span className="text-blue-700 font-semibold">Anand Raj</span> <span className="text-gray-500">(IITian)</span>
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                <span className="text-xl sm:text-2xl">👨‍💼</span>
+                <p className="text-gray-700 text-sm sm:text-base md:text-lg">
+                  Co-Founded by <span className="text-blue-700 font-semibold">Anand Raj</span>{" "}
+                  <span className="text-gray-500">(IITian)</span>
                 </p>
               </div>
             </div>
           </div>
-
-
 
           <div className="text-center mt-10">
             <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-md hover:bg-blue-700 transition-all duration-200">
